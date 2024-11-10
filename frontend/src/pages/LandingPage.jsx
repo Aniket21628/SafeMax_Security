@@ -27,7 +27,7 @@ export default function LandingPage() {
   const handleQuerySubmit = async (e) => {
     e.preventDefault()
     try{
-      const response = await axios.post("http://localhost:3000/api/v1/appointment/queries", {
+      const response = await axios.post("https://safemax-security-uxq6.onrender.com/api/v1/appointment/queries", {
         name:query.name,
         email:query.email,
         subject:query.subject,

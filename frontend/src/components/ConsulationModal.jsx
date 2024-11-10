@@ -20,7 +20,7 @@ const formattedDate = moment(appointment.appointmentDate).format('DD-MM-YY');
 console.log(formattedDate); 
   
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/appointment/appointments", {
+      const response = await axios.post("https://safemax-security-uxq6.onrender.com/api/v1/appointment/appointments", {
         name: appointment.name,
         email: appointment.email,
         appointmentDate: formattedDate,

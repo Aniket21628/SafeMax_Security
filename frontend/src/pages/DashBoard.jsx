@@ -49,7 +49,7 @@ const handleAppointmentStatusChange = async (id, newStatus) => {
     console.log(`Changing status for appointment ID: ${id} to ${newStatus}`);
 
     try {
-        await axios.put(`http://localhost:3000/api/v1/admin/appointments/${id}/status`, 
+        await axios.put(`https://safemax-security-uxq6.onrender.com/api/v1/admin/appointments/${id}/status`, 
             { status: newStatus }, 
             {
                 headers: {
@@ -77,7 +77,7 @@ const handleQueryStatusChange = async (id, newStatus) => {
     console.log(`Changing status for query ID: ${id} to ${newStatus}`);
 
     try {
-        await axios.put(`http://localhost:3000/api/v1/admin/queries/${id}/status`, 
+        await axios.put(`https://safemax-security-uxq6.onrender.com/api/v1/admin/queries/${id}/status`, 
             { status: newStatus }, 
             {
                 headers: {
@@ -114,7 +114,7 @@ const toggleSidebar = () => {
 useEffect(() => {
   const fetchAdminUsers = async () => {
       try {
-          const response = await axios.get('http://localhost:3000/api/v1/admin/adminUsers', {
+          const response = await axios.get('https://safemax-security-uxq6.onrender.com/api/v1/admin/adminUsers', {
               headers: {
                   'Authorization': `Bearer ${authToken}` 
               }
@@ -132,7 +132,7 @@ useEffect(() => {
 useEffect(() => {
   const fetchAppointments = async () => {
       try {
-          const response = await axios.get('http://localhost:3000/api/v1/appointment/appointments', {
+          const response = await axios.get('https://safemax-security-uxq6.onrender.com/api/v1/appointment/appointments', {
               headers: {
                   'Authorization': `Bearer ${authToken}` 
               }
@@ -150,7 +150,7 @@ useEffect(() => {
 useEffect(() => {
   const fetchQueries = async () => {
       try {
-          const response = await axios.get('http://localhost:3000/api/v1/appointment/queries', {
+          const response = await axios.get('https://safemax-security-uxq6.onrender.com/api/v1/appointment/queries', {
               headers: {
                   'Authorization': `Bearer ${authToken}` 
               }
@@ -175,7 +175,7 @@ const handleAddUser = async (event) => {
 
   try {
       const response = await axios.post(
-          'http://localhost:3000/api/v1/admin/adminUsers/signup',
+          'https://safemax-security-uxq6.onrender.com/api/v1/admin/adminUsers/signup',
           {
               firstname: newUser.firstname,
               lastname: newUser.lastname,

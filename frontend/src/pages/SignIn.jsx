@@ -20,7 +20,7 @@ export default function AdminSignIn() {
     setErrorMessage(''); 
 
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/admin/adminUsers/login", {
+      const response = await axios.post("https://safemax-security-uxq6.onrender.com/api/v1/admin/adminUsers/login", {
         username,
         password,
       });
