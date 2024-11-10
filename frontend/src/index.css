@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+  }
+
+  @keyframes testimonial-carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-testimonial-carousel {
+    animation: testimonial-carousel 5s linear infinite;
+    animation-play-state: running;
+  }
+  
+  .animate-testimonial-carousel:hover {
+    animation-play-state: paused;
+  }
