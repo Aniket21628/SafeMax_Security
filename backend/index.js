@@ -18,6 +18,9 @@ app.use(json());
 app.use("/api/v1", rootRouter);
 
 // Serve static files from the React app (after running `npm run build` in React)
+// Use import.meta.url to get the current directory
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Fallback to index.html for all other routes (important for React Router handling)
