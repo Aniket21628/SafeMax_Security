@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { Eye, EyeOff, Shield } from 'lucide-react';
 import axios from 'axios';
 import logo from '../assets/logo.jpg'; 
-const { login } = useContext(AuthContext);
+
 
 export default function AdminSignIn() {
   const [username, setUsername] = useState('');
@@ -16,33 +16,33 @@ export default function AdminSignIn() {
   const navigate = useNavigate(); 
 
   const handleSignin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setErrorMessage('');
-  
+    e.preventDefault(); 
+    setLoading(true); 
+    setErrorMessage(''); 
+
     try {
       const response = await axios.post("https://safemax-security-uxq6.onrender.com/api/v1/admin/adminUsers/login", {
         username,
         password,
       });
-  
-      login(response.data.token); // Use login method instead of directly setting localStorage
-      setLoading(false);
-      setWelcomeMessage(true);
-  
+
+      localStorage.setItem("token", response.data.token);
+      setLoading(false); 
+      setWelcomeMessage(true); 
+
       setTimeout(() => {
         setWelcomeMessage(false);
-        navigate("/dashboard");
-      }, 2000);
-  
+        navigate("/dashboard"); 
+      }, 2000); 
+
     } catch (error) {
       setLoading(false);
       if (error.response && error.response.status === 401) {
-        setErrorMessage("Invalid credentials. Please try again.");
+        setErrorMessage("Invalid credentials. Please try again."); 
       } else {
-        setErrorMessage("Something went wrong. Please try again later.");
+        setErrorMessage("Something went wrong. Please try again later."); 
       }
-      console.error("Sign-in error:", error);
+      console.error("Sign-in error:", error); 
     }
   };
 
