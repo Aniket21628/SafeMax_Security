@@ -111,7 +111,7 @@ router.put("/queries/:id/status", authMiddleware, async (req, res) => {
         }
         res.status(200).json({ message: "Query status updated successfully.", query });
     } catch (err) {
-        console.error("Error updating query status:", err); // Log the error for debugging
+        console.error("Error updating query status:", err); 
         res.status(500).json({ message: "Failed to update query status", error: err.message });
     }
 });

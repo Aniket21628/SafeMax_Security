@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, Lock, Zap, Users, CheckCircle, Star, Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronDown, Lock, Zap, Users, CheckCircle} from 'lucide-react'
 import { Heading } from '../components/Heading';
 import NavBarButton from '../components/NavBarButton';
 import NavBarButton2 from '../components/NavBarButton2';
