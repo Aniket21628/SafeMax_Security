@@ -102,7 +102,7 @@ const logout = () => {
     duration: 2000,
   });
   setTimeout(() => {
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     navigate("/signin");
   }, 2000); 
 }

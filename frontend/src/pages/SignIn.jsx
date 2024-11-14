@@ -26,7 +26,7 @@ export default function AdminSignIn() {
         password,
       });
 
-      localStorage.setItem("token", response.data.token);
+      sessionStorage.setItem("token", response.data.token);
       setLoading(false); 
       setWelcomeMessage(true); 
 

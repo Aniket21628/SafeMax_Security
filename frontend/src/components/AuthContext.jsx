@@ -4,16 +4,16 @@ import toast from 'react-hot-toast';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [authToken, setAuthToken] = useState(localStorage.getItem('token') || null);
+    const [authToken, setAuthToken] = useState(sessionStorage.getItem('token') || null);
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token = sessionStorage.getItem('token');
         if (token) {
             setAuthToken(token); 
         }
     }, []); 
 
     const login = (token) => {
-        localStorage.setItem('token', token);
+        sessionStorage.setItem('token', token);
         setAuthToken(token); 
     };
 
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
         });
 
         setTimeout(() => {
-            localStorage.removeItem('token');
+            sessionStorage.removeItem('token');
             setAuthToken(null); 
         }, 2000); 
     };
