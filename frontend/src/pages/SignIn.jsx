@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Shield } from 'lucide-react';
 import axios from 'axios';
 import logo from '../assets/logo.jpg'; 
-
+import AuthContext from './AuthContext';
 
 export default function AdminSignIn() {
   const [username, setUsername] = useState('');
@@ -12,6 +12,7 @@ export default function AdminSignIn() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(''); 
   const [welcomeMessage, setWelcomeMessage] = useState(false);
+  const { login } = useContext(AuthContext);
 
   const navigate = useNavigate(); 
 
