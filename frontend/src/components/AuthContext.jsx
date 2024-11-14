@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [authToken, setAuthToken] = useState(sessionStorage.getItem('token') || null);
     useEffect(() => {
         const token = sessionStorage.getItem('token');
+        console.log("Retrieved token from sessionStorage:", token);
         if (token) {
             setAuthToken(token); 
         }

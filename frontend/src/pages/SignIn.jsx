@@ -25,13 +25,15 @@ export default function AdminSignIn() {
         username,
         password,
       });
-
+      
+      console.log("Setting token and navigating to dashboard...");
       sessionStorage.setItem("token", response.data.token);
       setLoading(false); 
       setWelcomeMessage(true); 
 
       setTimeout(() => {
         setWelcomeMessage(false);
+        console.log("Token set. Navigating now.");
         navigate("/dashboard"); 
       }, 2000); 
 
