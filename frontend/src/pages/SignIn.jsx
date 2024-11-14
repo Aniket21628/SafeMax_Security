@@ -16,38 +16,41 @@ export default function AdminSignIn() {
   const navigate = useNavigate(); 
 
   const handleSignin = async (e) => {
-    e.preventDefault(); 
-    setLoading(true); 
-    setErrorMessage(''); 
+    e.preventDefault();
+    setLoading(true);
+    setErrorMessage('');
 
     try {
-      const response = await axios.post("https://safemax-security-uxq6.onrender.com/api/v1/admin/adminUsers/login", {
-        username,
-        password,
-      });
-      
-      console.log("Setting token and navigating to dashboard...");
-      sessionStorage.setItem("token", response.data.token);
-      setLoading(false); 
-      setWelcomeMessage(true); 
+        const response = await axios.post("https://safemax-security-uxq6.onrender.com/api/v1/admin/adminUsers/login", {
+            username,
+            password,
+        });
 
-      setTimeout(() => {
-        setWelcomeMessage(false);
-        console.log("Token set. Navigating now.");
-        navigate("/dashboard"); 
-      }, 2000); 
+        const token = response.data.token;
+        console.log("Setting token and navigating to dashboard...");
+
+        // Use login method from AuthContext
+        login(token);
+
+        setLoading(false);
+        setWelcomeMessage(true);
+
+        setTimeout(() => {
+            setWelcomeMessage(false);
+            console.log("Token set. Navigating now.");
+            navigate("/dashboard");
+        }, 2000);
 
     } catch (error) {
-      setLoading(false);
-      if (error.response && error.response.status === 401) {
-        setErrorMessage("Invalid credentials. Please try again."); 
-      } else {
-        setErrorMessage("Something went wrong. Please try again later."); 
-      }
-      console.error("Sign-in error:", error); 
+        setLoading(false);
+        if (error.response && error.response.status === 401) {
+            setErrorMessage("Invalid credentials. Please try again.");
+        } else {
+            setErrorMessage("Something went wrong. Please try again later.");
+        }
+        console.error("Sign-in error:", error);
     }
-  };
-
+};
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col justify-center py-7 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
