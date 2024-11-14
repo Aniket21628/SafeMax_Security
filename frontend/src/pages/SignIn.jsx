@@ -30,9 +30,10 @@ export default function AdminSignIn() {
       setLoading(false); 
       setWelcomeMessage(true); 
 
-      
+      setTimeout(() => {
+        setWelcomeMessage(false);
         navigate("/dashboard"); 
-     
+      }, 2000); 
 
     } catch (error) {
       setLoading(false);
